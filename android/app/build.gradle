@@ -21,11 +21,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    ndkVersion "21.1.6352462"
 }
 
 repositories {
     flatDir{
         dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+    maven {
+        url "https://download2.dynamsoft.com/maven/dce/aar"
+    }
+    maven {
+        url "https://download2.dynamsoft.com/maven/dbr/aar"
     }
 }
 
