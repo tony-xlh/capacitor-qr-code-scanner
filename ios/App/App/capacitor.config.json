@@ -2,5 +2,5 @@
 	"appId": "com.dynamsoft.qrcodescanner",
 	"appName": "QRCodeScanner",
 	"webDir": "build",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": true
 }

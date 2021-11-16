@@ -7,18 +7,17 @@ import { Capacitor } from '@capacitor/core';
 function App() {
 
   async function scan() {
-    document.getElementById("scan").setAttribute("disabled","");
+    showMessage("Starting")
     var result = await DBR.scan({"organizationID":"200001"});
-    document.getElementById("scan").removeAttribute("disabled");
     let message = result.barcodeFormat+": "+result.barcodeText;
-    if (Capacitor.isNativePlatform === true){
-      await Toast.show({
-        text: message
-      });
-    }else{
-      alert(message);
-    }
-    
+    showMessage(message)
+  }
+  
+  async function showMessage(message){
+    await Toast.show({
+      text: message
+    });
+
   }
     
   return (
