@@ -14,10 +14,14 @@ function App() {
   }
   
   async function showMessage(message){
-    await Toast.show({
-      text: message
-    });
-
+    if (Capacitor.isNativePlatform()){
+      await Toast.show({
+        text: message
+      });
+    }    
+    else{
+      alert(message);
+    }
   }
     
   return (
