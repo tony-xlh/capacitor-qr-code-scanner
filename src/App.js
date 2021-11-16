@@ -8,9 +8,13 @@ function App() {
 
   async function scan() {
     showMessage("Starting")
-    var result = await DBR.scan({"organizationID":"200001"});
-    let message = result.barcodeFormat+": "+result.barcodeText;
-    showMessage(message)
+    try{
+      var result = await DBR.scan({"organizationID":"200001"});
+      let message = result.barcodeFormat+": "+result.barcodeText;
+      showMessage(message)
+    }catch(e){
+      alert(e.message);
+    }
   }
   
   async function showMessage(message){
