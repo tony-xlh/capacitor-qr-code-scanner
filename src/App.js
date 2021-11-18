@@ -11,7 +11,7 @@ function App() {
     showMessage("Starting")
     try{
       showControlAndhideBackground();
-      var result = await DBR.scan({"organizationID":"100227763"});
+      var result = await DBR.scan();
       hideControlAndRevealBackground();
       let message = result.barcodeFormat+": "+result.barcodeText;
       showMessage(message)
@@ -22,11 +22,13 @@ function App() {
 
   function showControlAndhideBackground(){
     document.getElementById("scannerControl").style.display="inherit";
-    document.getElementsByClassName("App-header")[0].style.backgroundColor="transparent";
+    document.getElementsByClassName("App-header")[0].style.display="none";
+    //document.getElementsByClassName("App-header")[0].style.backgroundColor="transparent";
   }
 
   function hideControlAndRevealBackground(){
-    document.getElementsByClassName("App-header")[0].style.backgroundColor="#282c34";
+    //document.getElementsByClassName("App-header")[0].style.backgroundColor="#282c34";
+    document.getElementsByClassName("App-header")[0].style.display="flex";
     document.getElementById("scannerControl").style.display="none";
   }
   
