@@ -6,4 +6,4 @@ include ':capacitor-toast'
 project(':capacitor-toast').projectDir = new File('../node_modules/@capacitor/toast/android')
 
 include ':capacitor-plugin-dynamsoft-barcode-reader'
-project(':capacitor-plugin-dynamsoft-barcode-reader').projectDir = new File('../node_modules/capacitor-plugin-dynamsoft-barcode-reader/android')
+project(':capacitor-plugin-dynamsoft-barcode-reader').projectDir = new File('../../../plugins/capacitor-plugin-barcode-scanner/capacitor-plugin-dynamsoft-barcode-reader/android')
