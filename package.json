@@ -11,7 +11,7 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "capacitor-plugin-dynamsoft-barcode-reader": "file:../../plugins/capacitor-plugin-barcode-scanner/capacitor-plugin-dynamsoft-barcode-reader",
+    "capacitor-plugin-dynamsoft-barcode-reader": "file:../capacitor-plugin-dynamsoft-barcode-reader",
     "dynamsoft-javascript-barcode": "^8.6.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

@@ -9,12 +9,12 @@
 
 .toggleTorch {
     right: 0;
-    top: 0;
+    bottom: 0;
     height: 25px;
 }
 
 .close {
     right: 0;
-    top: 25px;
+    bottom: 25px;
     height: 25px;
 }
