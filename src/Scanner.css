@@ -1,7 +1,20 @@
-#scannerControl{
+#controlContainer{
+    display: none;
+}
+
+.scanner-control{
     position: absolute;
     z-index: 999;
-    display: none;
-    bottom: 0;
-    left: 0;
+}
+
+.toggleTorch {
+    right: 0;
+    top: 0;
+    height: 25px;
+}
+
+.close {
+    right: 0;
+    top: 25px;
+    height: 25px;
 }

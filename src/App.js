@@ -10,8 +10,9 @@ function App() {
   async function scan() {
     showMessage("Starting")
     try{
+      var template = "{\"ImageParameter\":{\"BarcodeFormatIds\":[\"BF_QR_CODE\"],\"Description\":\"\",\"Name\":\"Settings\"},\"Version\":\"3.0\"}";
       showControlAndhideBackground();
-      var result = await DBR.scan();
+      var result = await DBR.scan({"template":template});
       hideControlAndRevealBackground();
       let message = result.barcodeFormat+": "+result.barcodeText;
       showMessage(message)
@@ -21,7 +22,7 @@ function App() {
   }
 
   function showControlAndhideBackground(){
-    document.getElementById("scannerControl").style.display="inherit";
+    document.getElementById("controlContainer").style.display="inherit";
     document.getElementsByClassName("App-header")[0].style.display="none";
     //document.getElementsByClassName("App-header")[0].style.backgroundColor="transparent";
   }
@@ -29,7 +30,7 @@ function App() {
   function hideControlAndRevealBackground(){
     //document.getElementsByClassName("App-header")[0].style.backgroundColor="#282c34";
     document.getElementsByClassName("App-header")[0].style.display="flex";
-    document.getElementById("scannerControl").style.display="none";
+    document.getElementById("controlContainer").style.display="none";
   }
   
   async function showMessage(message){
@@ -43,14 +44,23 @@ function App() {
     }
   }
 
-  function toggleTorch(){
+  async function toggleTorch(){
     try{
       let desiredState = true;
       if (torchOn){
         desiredState = false;
       }
-      DBR.toggleTorch({"on":desiredState});
+      await DBR.toggleTorch({"on":desiredState});
       torchOn = desiredState;
+    }catch(e){
+      alert(e.message);
+    }
+  }
+
+  async function stopScan(){
+    try{
+      await DBR.stopScan();
+      hideControlAndRevealBackground();
     }catch(e){
       alert(e.message);
     }
@@ -64,9 +74,12 @@ function App() {
             Start Scanning
         </button>
       </header>
-      <div id="scannerControl" >
-        <button onClick={toggleTorch}>
+      <div id="controlContainer">
+        <button className="scanner-control toggleTorch" onClick={toggleTorch}>
             Toggle Torch
+        </button>
+        <button className="scanner-control close" onClick={stopScan}>
+            Close
         </button>
       </div>
     </div>
