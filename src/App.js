@@ -10,11 +10,19 @@ function App() {
   async function scan() {
     showMessage("Starting")
     try{
-      var template = "{\"ImageParameter\":{\"BarcodeFormatIds\":[\"BF_QR_CODE\"],\"Description\":\"\",\"Name\":\"Settings\"},\"Version\":\"3.0\"}";
+      let template = "{\"ImageParameter\":{\"BarcodeFormatIds\":[\"BF_QR_CODE\"],\"Description\":\"\",\"Name\":\"Settings\"},\"Version\":\"3.0\"}";
       showControlAndhideBackground();
-      var result = await DBR.scan({"template":template});
+      let retObj = await DBR.scan({"template":template});
+      let results = retObj["results"];
       hideControlAndRevealBackground();
-      let message = result.barcodeFormat+": "+result.barcodeText;
+      var message = ""; 
+      for (let index = 0; index < results.length; index++) {
+        if (index>0){
+          message = message + "\n";
+        }
+        const result = results[index];
+        message = message + result["barcodeFormat"]+": "+result["barcodeText"];
+      }
       showMessage(message)
     }catch(e){
       alert(e.message);
@@ -34,11 +42,9 @@ function App() {
   }
   
   async function showMessage(message){
-
     await Toast.show({
       text: message
     });
-
   }
 
   async function toggleTorch(){
@@ -53,7 +59,7 @@ function App() {
       alert(e.message);
     }
   }
-
+  
   async function stopScan(){
     try{
       await DBR.stopScan();
