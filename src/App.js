@@ -7,26 +7,40 @@ import { Capacitor } from '@capacitor/core';
 
 function App() {
   var torchOn = false;
-  async function scan() {
+  async function startScan() {
     showMessage("Starting")
     try{
-      let template = "{\"ImageParameter\":{\"BarcodeFormatIds\":[\"BF_QR_CODE\"],\"Description\":\"\",\"Name\":\"Settings\"},\"Version\":\"3.0\"}";
       showControlAndhideBackground();
-      let retObj = await DBR.scan({"template":template});
-      let results = retObj["results"];
-      hideControlAndRevealBackground();
-      var message = ""; 
-      for (let index = 0; index < results.length; index++) {
-        if (index>0){
-          message = message + "\n";
-        }
-        const result = results[index];
-        message = message + result["barcodeFormat"]+": "+result["barcodeText"];
+      let continuous = document.getElementById("continuous").checked;
+      let options = {"continuous":continuous};
+      if (document.getElementById("qrcode").checked){
+        let template = "{\"ImageParameter\":{\"BarcodeFormatIds\":[\"BF_QR_CODE\"],\"Description\":\"\",\"Name\":\"Settings\"},\"Version\":\"3.0\"}";
+        options["template"] = template;
       }
-      showMessage(message)
+      await DBR.startScan(options);
+      DBR.addListener('onFrameRead', (retObj) => {
+        onFrameRead(retObj);
+      });
     }catch(e){
       alert(e.message);
     }
+  }
+
+  function onFrameRead(retObj){
+    let continuous = document.getElementById("continuous").checked;
+    let results = retObj["results"];
+    if (continuous==false){
+      hideControlAndRevealBackground();
+    }
+    var message = ""; 
+    for (let index = 0; index < results.length; index++) {
+      if (index>0){
+        message = message + "\n";
+      }
+      const result = results[index];
+      message = message + result["barcodeFormat"]+": "+result["barcodeText"];
+    }
+    showMessage(message)
   }
 
   function showControlAndhideBackground(){
@@ -73,9 +87,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <button id="scan" onClick={scan}>
+        <button id="scan" onClick={startScan}>
             Start Scanning
         </button>
+        <label htmlFor="qrcode">Scan QR Code Only<input id="qrcode" value="qrcode" type="checkbox"></input></label>
+        <label htmlFor="continuous">Continuous Scan<input id="continuous" value="continuous" type="checkbox"></input></label>
       </header>
       <div id="controlContainer">
         <button className="scanner-control toggleTorch" onClick={toggleTorch}>
