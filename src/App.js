@@ -34,14 +34,11 @@ function App() {
   }
   
   async function showMessage(message){
-    if (Capacitor.isNativePlatform()){
-      await Toast.show({
-        text: message
-      });
-    }    
-    else{
-      alert(message);
-    }
+
+    await Toast.show({
+      text: message
+    });
+
   }
 
   async function toggleTorch(){

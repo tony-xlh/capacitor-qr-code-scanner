@@ -8,6 +8,7 @@
     "@capacitor/core": "^3.3.1",
     "@capacitor/ios": "^3.3.1",
     "@capacitor/toast": "^1.0.6",
+    "@ionic/pwa-elements": "^3.0.2",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
