@@ -11,8 +11,7 @@ function App() {
     showMessage("Starting")
     try{
       showControlAndhideBackground();
-      let continuous = document.getElementById("continuous").checked;
-      let options = {"continuous":continuous};
+      let options = {};
       if (document.getElementById("qrcode").checked){
         let template = "{\"ImageParameter\":{\"BarcodeFormatIds\":[\"BF_QR_CODE\"],\"Description\":\"\",\"Name\":\"Settings\"},\"Version\":\"3.0\"}";
         options["template"] = template;
@@ -26,21 +25,23 @@ function App() {
     }
   }
 
-  function onFrameRead(retObj){
+  async function onFrameRead(retObj){
     let continuous = document.getElementById("continuous").checked;
     let results = retObj["results"];
-    if (continuous==false){
-      hideControlAndRevealBackground();
-    }
-    var message = ""; 
-    for (let index = 0; index < results.length; index++) {
-      if (index>0){
-        message = message + "\n";
+    if (results.length>0) {
+      if (continuous==false){
+        await stopScan();
       }
-      const result = results[index];
-      message = message + result["barcodeFormat"]+": "+result["barcodeText"];
+      var message = ""; 
+      for (let index = 0; index < results.length; index++) {
+        if (index>0){
+          message = message + "\n";
+        }
+        const result = results[index];
+        message = message + result["barcodeFormat"]+": "+result["barcodeText"];
+      }
+      showMessage(message)
     }
-    showMessage(message)
   }
 
   function showControlAndhideBackground(){
