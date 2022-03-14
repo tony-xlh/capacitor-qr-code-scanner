@@ -3,20 +3,34 @@ import './App.css';
 import './Scanner.css';
 import { DBR } from 'capacitor-plugin-dynamsoft-barcode-reader';
 import { Toast } from '@capacitor/toast';
-import { Capacitor } from '@capacitor/core';
+import { useEffect, useState } from "react";
 
 function App() {
   var torchOn = false;
+  let [initialized,setInitialized] = useState(false);
+
+  useEffect(() => {
+    async function init() {
+      let result = await DBR.initialize();
+      console.log(result);
+      if (result) {
+        if (result.success == true) {
+          setInitialized(true);
+        }
+      }
+    }
+    init();
+  }, []);
+
   async function startScan() {
     showMessage("Starting")
     try{
       showControlAndhideBackground();
-      let options = {};
       if (document.getElementById("qrcode").checked){
         let template = "{\"ImageParameter\":{\"BarcodeFormatIds\":[\"BF_QR_CODE\"],\"Description\":\"\",\"Name\":\"Settings\"},\"Version\":\"3.0\"}";
-        options["template"] = template;
+        await DBR.initRuntimeSettingsWithString({template: template})
       }
-      await DBR.startScan(options);
+      await DBR.startScan();
       DBR.addListener('onFrameRead', (retObj) => {
         onFrameRead(retObj);
       });
@@ -88,7 +102,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <button id="scan" onClick={startScan}>
+        <button id="scan" onClick={startScan} disabled={!initialized}>
             Start Scanning
         </button>
         <label htmlFor="qrcode">Scan QR Code Only<input id="qrcode" value="qrcode" type="checkbox"></input></label>
