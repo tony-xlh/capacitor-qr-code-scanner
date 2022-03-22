@@ -28,7 +28,10 @@ function App() {
       showControlAndhideBackground();
       if (document.getElementById("qrcode").checked){
         let template = "{\"ImageParameter\":{\"BarcodeFormatIds\":[\"BF_QR_CODE\"],\"Description\":\"\",\"Name\":\"Settings\"},\"Version\":\"3.0\"}";
-        await DBR.initRuntimeSettingsWithString({template: template})
+        await DBR.initRuntimeSettingsWithString({template: template});
+      } else{
+        let template = "{\"ImageParameter\":{\"BarcodeFormatIds\":[\"BF_ALL\"],\"Description\":\"\",\"Name\":\"Settings\"},\"Version\":\"3.0\"}";
+        await DBR.initRuntimeSettingsWithString({template: template});
       }
       await DBR.startScan();
       DBR.addListener('onFrameRead', (retObj) => {
