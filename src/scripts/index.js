@@ -44,6 +44,7 @@ function toggleScan(){
 
 async function startScan(){
   scanned = false;
+  document.getElementById("result").innerHTML = "";
   await onCameraSelectionChanged();
   await DBR.startScan();
   document.body.style.background = "transparent";
