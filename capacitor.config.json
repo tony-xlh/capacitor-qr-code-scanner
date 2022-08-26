@@ -1,0 +1,6 @@
+{
+  "appId": "com.xulihang.capqrscanner",
+  "appName": "qrcode-scanner",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}

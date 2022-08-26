@@ -58,6 +58,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "@capacitor/cli": "^4.1.0",
+    "@capacitor/core": "^4.1.0",
     "core-js": "^3.20.3"
   }
 }
