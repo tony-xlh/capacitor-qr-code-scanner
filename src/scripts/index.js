@@ -46,8 +46,8 @@ async function startScan(){
   scanned = false;
   await onCameraSelectionChanged();
   await DBR.startScan();
-  document.getElementById("controls").style.position = "absolute";
-  document.getElementById("controls").style.zIndex = "999";
+  document.body.style.background = "transparent";
+  document.getElementById("controls").className = "fullscreen";
   document.getElementById("controlButton").innerText = "Stop Scanning";
 }
 
@@ -58,9 +58,9 @@ async function onCameraSelectionChanged(){
 }
 
 async function stopScan(){
-  document.getElementById("controls").style.position = "";
-  document.getElementById("controls").style.zIndex = "";
+  document.getElementById("controls").className = "";
   await DBR.stopScan();
+  document.body.style.background = "white";
   document.getElementById("controlButton").innerText = "Start Scanning";
 }
 
