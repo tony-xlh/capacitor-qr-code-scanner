@@ -2,10 +2,6 @@
 
 A Capacitor web app demo for the [plugin of Dynamsoft Barcode Reader](https://www.npmjs.com/package/capacitor-plugin-dynamsoft-barcode-reader).
 
-
-![](./android_screenshot.jpg)
-
-
 You can find its online demo [here](https://blog.xulihang.me/capacitor-qr-code-scanner/).
 
 ### How to run the project
