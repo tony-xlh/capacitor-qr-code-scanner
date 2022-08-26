@@ -1,3 +1,8 @@
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .fullscreen {
   position: absolute;
   width: 100%;
@@ -5,6 +10,10 @@
   z-index: 999;
 }
 
+ol {
+  padding: 20px;
+}
+
 li {
-  white-space: normal;
+  word-break: break-all;
 }
