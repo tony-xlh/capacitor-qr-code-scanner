@@ -66,17 +66,17 @@ async function stopScan(){
 
 function onFrameRead(retObj){
   let results = retObj["results"];
-  let message = "";
   if (results.length>0 && scanned == false) {
     scanned = true;
+    let ol = document.createElement("ol");
+
     for (let index = 0; index < results.length; index++) {
-      if (index>0){
-        message = message + "\n";
-      }
+      let li = document.createElement("li");
       const result = results[index];
-      message = message + result["barcodeFormat"]+": "+result["barcodeText"];
+      li.innerText = result["barcodeFormat"]+": "+result["barcodeText"];
+      ol.appendChild(li);
     }
     stopScan();
-    document.getElementById("result").innerText = message;
+    document.getElementById("result").innerHTML = ol.outerHTML;
   }
 }
