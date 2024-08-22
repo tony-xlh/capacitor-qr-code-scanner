@@ -52,9 +52,11 @@ function toggleControlsDisplay(show){
   if (show) {
     document.getElementsByClassName("home")[0].style.display = "none";
     document.getElementsByClassName("controls")[0].style.display = "";
+    document.body.style.background = "transparent";
   }else {
     document.getElementsByClassName("home")[0].style.display = "";
     document.getElementsByClassName("controls")[0].style.display = "none";
+    document.body.style.background = "white";
   }
 }
 
