@@ -1,0 +1,5 @@
+{
+  "appId": "com.xulihang.capacitor.qrcodescanner",
+  "appName": "qrcode-scanner",
+  "webDir": "dist"
+}

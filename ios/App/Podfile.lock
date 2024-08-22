@@ -1,0 +1,63 @@
+PODS:
+  - Capacitor (6.1.2):
+    - CapacitorCordova
+  - CapacitorCordova (6.1.2)
+  - CapacitorPluginCamera (2.0.2):
+    - Capacitor
+  - CapacitorPluginDynamsoftBarcodeReader (2.0.1):
+    - Capacitor
+    - DynamsoftBarcodeReader (= 10.0.20)
+    - DynamsoftCaptureVisionRouter (= 2.0.20)
+    - DynamsoftCore (= 3.0.20)
+    - DynamsoftImageProcessing (= 2.0.20)
+    - DynamsoftLicense (= 3.0.20)
+  - DynamsoftBarcodeReader (10.0.20):
+    - DynamsoftCore (= 3.0.20)
+    - DynamsoftImageProcessing (= 2.0.20)
+    - DynamsoftLicense (= 3.0.20)
+  - DynamsoftCaptureVisionRouter (2.0.20):
+    - DynamsoftCore (= 3.0.20)
+    - DynamsoftLicense (= 3.0.20)
+  - DynamsoftCore (3.0.20)
+  - DynamsoftImageProcessing (2.0.20):
+    - DynamsoftCore (= 3.0.20)
+  - DynamsoftLicense (3.0.20)
+
+DEPENDENCIES:
+  - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - CapacitorPluginCamera (from `../../node_modules/capacitor-plugin-camera`)
+  - CapacitorPluginDynamsoftBarcodeReader (from `../../node_modules/capacitor-plugin-dynamsoft-barcode-reader`)
+
+SPEC REPOS:
+  trunk:
+    - DynamsoftBarcodeReader
+    - DynamsoftCaptureVisionRouter
+    - DynamsoftCore
+    - DynamsoftImageProcessing
+    - DynamsoftLicense
+
+EXTERNAL SOURCES:
+  Capacitor:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorCordova:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorPluginCamera:
+    :path: "../../node_modules/capacitor-plugin-camera"
+  CapacitorPluginDynamsoftBarcodeReader:
+    :path: "../../node_modules/capacitor-plugin-dynamsoft-barcode-reader"
+
+SPEC CHECKSUMS:
+  Capacitor: 679f9673fdf30597493a6362a5d5bf233d46abc2
+  CapacitorCordova: f48c89f96c319101cd2f0ce8a2b7449b5fb8b3dd
+  CapacitorPluginCamera: 7f7660fb269b02bf2300e3754dea21c929b7bf89
+  CapacitorPluginDynamsoftBarcodeReader: bbf8afada71e74f142f99a5aab0bf19ec774c22c
+  DynamsoftBarcodeReader: 57ceb9d7734801caa775e2e6b9ebfb9819b4e2d2
+  DynamsoftCaptureVisionRouter: 13d460d5be0048bcf9ab39962148a63ffe549e43
+  DynamsoftCore: 928916c8605eb622c13d560753d5de67e8694fb4
+  DynamsoftImageProcessing: 58e28c5b3e6d1bb64e03d677cc0c26fb35fbc2f2
+  DynamsoftLicense: 06fcc035c2ed9494bbbcb793e21f9ff864ab26e8
+
+PODFILE CHECKSUM: f1b48b62a987bb2dca8096b5823a8ce53d207c28
+
+COCOAPODS: 1.15.2

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barcode Scanner</title>
+    <style>
+      .home {
+        padding-top: env(safe-area-inset-top);
+      }
+
+      #closeButton {
+        top:0;
+        top:env(safe-area-inset-top);
+        right:0;
+        height: 20px;
+        position:absolute;
+      }
+
+      #toggleTorchButton {
+        bottom: 0;
+        left: 0;
+        height: 20px;
+        position: absolute;
+        font-family:monospace;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-DRDlNxNC.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="home">
+        <h2>Barcode Reader</h2>
+        <button id="startScanButton" type="button">Start Live Scan</button>
+        <div id="results">
+        </div>
+      </div>
+      <div class="controls" style="display:none;">
+        <div class="camera">
+          <div class="dce-video-container"></div>
+        </div>
+        <button id="closeButton" type="button">Close</button>
+        <button id="toggleTorchButton" type="button">Toggle Torch</button>
+      </div>
+    </main>
+  </body>
+</html>
