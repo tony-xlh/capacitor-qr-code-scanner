@@ -1,1 +1,55 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>Capacitor QR Code Scanner</title><meta name="description" content="A QR Code Scanner using the Dynamsoft Capacitor plugin"><script defer="defer" src="js/146.dc6fa146.js"></script><script defer="defer" src="js/app.894ac1ac.js"></script><link href="css/app.894ac1ac.css" rel="stylesheet"></head><body><div><span id="status">Initializing...</span><div id="controls" style="display:none"><select id="cameraSelect" style="max-width:200px"></select> <button id="controlButton">Start Scanning</button><div id="result"></div></div></div></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Barcode Scanner</title>
+    <style>
+      body {
+        background: white;
+      }
+
+      .home {
+        padding-top: env(safe-area-inset-top);
+      }
+
+      #closeButton {
+        top:0;
+        top:env(safe-area-inset-top);
+        right:0;
+        height: 20px;
+        position:absolute;
+      }
+
+      #toggleTorchButton {
+        bottom: 0;
+        left: 0;
+        height: 20px;
+        position: absolute;
+        font-family:monospace;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-CZtbNzEb.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="home">
+        <h2>Barcode Reader</h2>
+        <button id="startScanButton" type="button">Start Live Scan</button>
+        <div id="results">
+        </div>
+      </div>
+      <div class="controls" style="display:none;">
+        <div class="camera">
+          <div class="dce-video-container"></div>
+        </div>
+        <button id="closeButton" type="button">Close</button>
+        <button id="toggleTorchButton" type="button">Toggle Torch</button>
+      </div>
+    </main>
+  </body>
+</html>
