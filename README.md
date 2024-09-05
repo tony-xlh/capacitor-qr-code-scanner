@@ -19,3 +19,8 @@ npx cap sync
 ```
 
 Then, open the Android project with Android Studio or iOS project with Xcode to run the project.
+
+### Blog
+
+[How to Build a Cross-Platform QR Code Scanner with Capacitor](https://www.dynamsoft.com/codepool/capacitor-qr-code-scanner.html)
+
